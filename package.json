@@ -1,0 +1,15 @@
+{
+  "name": "sw_basic_auth_repro",
+  "version": "1.0.0",
+  "description": "Repro https://crbug.com/1055253",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "nag5000",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-basic-auth": "^1.2.1"
+  }
+}
