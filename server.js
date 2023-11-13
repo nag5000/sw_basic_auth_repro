@@ -10,17 +10,21 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+let nextUsername = 0;
+
 app.get(
   '/time',
 
   basicAuth({
-    users: { 'admin': 'admin' },
+    authorizer: (username, password) => (username == nextUsername),
     challenge: true,
   }),
 
   async (req, res) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     res.send(new Date().toISOString());
+
+    nextUsername++;
   }
 );
 
